@@ -63,3 +63,12 @@ func (fr *FacultyRepository) DeleteDepartment(fid int,abb string) error{
 	}
 	return nil
 }
+
+func (fr *FacultyRepository) getInformation(fName string) (string,error){
+	for i,e := range fr.FacultyDB{
+		if e.Information == fName{
+			return fr.FacultyDB[i].Information,nil
+		}
+	}
+	return "",nil
+}

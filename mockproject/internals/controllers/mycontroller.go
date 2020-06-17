@@ -66,6 +66,13 @@ func (sc ServiceController) GetFaculty(c *gin.Context){
 	}
 	c.JSON(200,faculty)
 }
+func (sc ServiceController) GetInformation(c *gin.Context){
+	fName := c.Param("name")
+	if info,err := sc.FacultyService.GetInformation(fName); err != nil{
+		c.AbortWithError(500,err)
+	}
+	c.JSON(200,info)
+}
 func (sc ServiceController) AddFaculty(c *gin.Context){
 	faculty := &models.Faculty{}
 	if err :=c.BindJSON(faculty); err != nil{
