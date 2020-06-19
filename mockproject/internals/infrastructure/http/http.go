@@ -29,7 +29,7 @@ func (h *Server) Configure() {
 	f := r.Group("/faculty")
 	{
 		f.GET("/getFaculty",h.gatewayCtrl.ServiceController.GetFaculty)
-		f.POST("/getInformation/:name",h.gatewayCtrl.ServiceController.GetInformation)
+		f.GET("/getInformation/:name",h.gatewayCtrl.ServiceController.GetInformation)
 		f.POST("/addFaculty",h.gatewayCtrl.ServiceController.AddFaculty)
 		f.DELETE("/deleteFaculty/:code", h.gatewayCtrl.ServiceController.DeleteFaculty)
 		f.POST("/addDepartment/:code",h.gatewayCtrl.ServiceController.AddDepartment)

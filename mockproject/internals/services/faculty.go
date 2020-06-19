@@ -57,7 +57,7 @@ func (fs *FacultyService) DeleteDepartment(fid int,abb string) error{
 }
 
 func (fs *FacultyService) GetInformation(fName string) (string,error){
-	info,err := fs.FacultyRepository.getInformation(fName)
+	info,err := fs.FacultyRepository.GetInformation(fName)
 	if err != nil{
 		return "",err
 	}

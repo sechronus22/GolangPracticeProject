@@ -68,7 +68,8 @@ func (sc ServiceController) GetFaculty(c *gin.Context){
 }
 func (sc ServiceController) GetInformation(c *gin.Context){
 	fName := c.Param("name")
-	if info,err := sc.FacultyService.GetInformation(fName); err != nil{
+	info,err := sc.FacultyService.GetInformation(fName)
+	if err != nil{
 		c.AbortWithError(500,err)
 	}
 	c.JSON(200,info)
